@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 class Note extends Component {
     render() {
-        console.log(this.props)
         return (
             <div className="note-container">
                 <h3>
