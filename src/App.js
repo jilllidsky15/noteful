@@ -23,11 +23,19 @@ class App extends Component {
         <Header />
         <div className="container">
           <nav>
-            <Route path="/folders/:folderId" render={(routeProps) => {
-              const folderId = routeProps.match.params.folderId
-              const selectedFolder = this.state.folders.find(folder => folder.id === folderId)
+            <Route path="/notes/:noteId" render={(routeProps) => {
+              const noteId = routeProps.match.params.noteId
+              const selectedNote = this.state.notes.find(note => note.id === noteId)
+              const selectedFolder = this.state.folders.find(folder => folder.id === selectedNote.folderId);
 
               return <NotePageNav folderName={selectedFolder.name} {...routeProps} />
+            }}
+            />
+            <Route path="/folders/:folderId" render={(routeProps) => {
+              const folderId = routeProps.match.params.folderId;
+              const selectedFolder = this.state.folders.find(folder => folder.id === folderId);
+
+              return <NoteListNav folders={this.state.folders} selectedFolder={selectedFolder.name} {...routeProps} />
             }}
             />
             <Route exact path="/" render={() =>
