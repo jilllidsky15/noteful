@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Note from './Note';
+import Note from './NoteRenderer';
 
 class NotePageMain extends Component {
     render() {
@@ -8,7 +8,7 @@ class NotePageMain extends Component {
                 <section className="note-page-main-container">
                     <Note {...this.props.selectedNote} />
                     <div>
-                        <p className="note-content">{this.props.content}</p>
+                        <p className="note-content">{this.props.selectedNote.content}</p>
                     </div>
                 </section>
         )

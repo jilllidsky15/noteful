@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
-class NoteListNav extends Component {
+class FolderNav extends Component {
     render() {
         // console.log(this.props.folders)
         return (
             <div className="note-list-nav-container">
                 <ul className="folder-list">
                     {this.props.folders.map(folder =>
-                        <li className="folder-item">
+                        <li className={`folder-item ${this.props.selectedFolder === folder.name ? 'active-folder' : ''}`}>
                           <NavLink to={`/folders/${folder.id}`}>
                             <span>{folder.name}</span>
                           </NavLink>
@@ -21,4 +21,4 @@ class NoteListNav extends Component {
     }
 }
 
-export default NoteListNav;
+export default FolderNav;

@@ -125,3 +125,7 @@ button.go-back {
 .note-content {
     margin-left: 10px;
 }
+
+.active-folder {
+    background-color: yellow;
+}

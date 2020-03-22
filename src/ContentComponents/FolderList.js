@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Note from './Note';
+import Note from './NoteRenderer';
 
 class NoteListMain extends Component {
     render() {
@@ -8,7 +8,7 @@ class NoteListMain extends Component {
                 <ul className="note-list">
                     {this.props.notes.map(note =>
                         <li className="note-item">
-                            <Note 
+                            <Note
                             id={note.id}
                             name={note.name}
                             modified={note.modified} />
