@@ -4,9 +4,9 @@ import './App.css';
 import DummyStore from './dummy-store';
 import Header from './Header';
 import FolderNav from './NavigationComponents/FolderNav';
-import NoteListMain from './ContentComponents/FolderList';
+import FolderList from './ContentComponents/FolderList';
 import NotePageNav from './NavigationComponents/NotePageNav';
-import NotePageMain from './ContentComponents/NoteDetail';
+import NoteDetail from './ContentComponents/NoteDetail';
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class App extends Component {
               const noteId = routeProps.match.params.noteId
               const selectedNote = this.state.notes.find(note => note.id === noteId)
 
-              return <NotePageMain selectedNote={selectedNote} {...routeProps} />
+              return <NoteDetail selectedNote={selectedNote} {...routeProps} />
             }}
             />
             <Route path="/folders/:folderId" render={(routeProps) => {
@@ -57,11 +57,11 @@ class App extends Component {
                 return note.folderId === selectedFolder.id;
               });
 
-              return <NoteListMain notes={notesInFolder} {...routeProps} />
+              return <FolderList notes={notesInFolder} {...routeProps} />
             }}
             />
             <Route exact path="/" render={() =>
-              <NoteListMain notes={this.state.notes} />
+              <FolderList notes={this.state.notes} />
             } />
           </main>
         </div>
