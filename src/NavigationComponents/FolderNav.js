@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
-class NoteListNav extends Component {
+class FolderNav extends Component {
     render() {
         // console.log(this.props.folders)
         return (
@@ -21,4 +21,4 @@ class NoteListNav extends Component {
     }
 }
 
-export default NoteListNav;
+export default FolderNav;

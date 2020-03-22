@@ -3,10 +3,10 @@ import { Route } from "react-router-dom";
 import './App.css';
 import DummyStore from './dummy-store';
 import Header from './Header';
-import NoteListNav from './NoteListNav';
-import NoteListMain from './NoteListMain';
-import NotePageNav from './NotePageNav';
-import NotePageMain from './NotePageMain';
+import FolderNav from './NavigationComponents/FolderNav';
+import NoteListMain from './ContentComponents/FolderList';
+import NotePageNav from './NavigationComponents/NotePageNav';
+import NotePageMain from './ContentComponents/NoteDetail';
 
 class App extends Component {
   constructor(props) {
@@ -35,11 +35,11 @@ class App extends Component {
               const folderId = routeProps.match.params.folderId;
               const selectedFolder = this.state.folders.find(folder => folder.id === folderId);
 
-              return <NoteListNav folders={this.state.folders} selectedFolder={selectedFolder.name} {...routeProps} />
+              return <FolderNav folders={this.state.folders} selectedFolder={selectedFolder.name} {...routeProps} />
             }}
             />
             <Route exact path="/" render={() =>
-              <NoteListNav folders={this.state.folders} />
+              <FolderNav folders={this.state.folders} />
             } />
           </nav>
           <main>

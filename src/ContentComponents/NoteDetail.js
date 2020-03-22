@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Note from './Note';
+import Note from './NoteRenderer';
 
 class NotePageMain extends Component {
     render() {
