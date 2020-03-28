@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Context from './Context';
-
+import PropTypes from 'prop-types';
 class Note extends Component {
     static contextType = Context
 
@@ -21,6 +21,13 @@ class Note extends Component {
             </div>
         )
     }
+}
+
+Note.propTypes = {
+    history: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    modified: PropTypes.string.isRequired,
 }
 
 export default Note;
