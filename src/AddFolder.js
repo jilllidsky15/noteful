@@ -16,12 +16,12 @@ class AddFolder extends Component {
         e.preventDefault();
         const newFolder = {
             name: e.target['folder-name'].value
-          }
+        }
+        // console.log(newFolder);
+
 
         this.context.addFolder(newFolder)
     }
-
-
 
     render() {
         return (
@@ -30,7 +30,8 @@ class AddFolder extends Component {
 
                 <label htmlFor="name">Name:</label>
                 <input type="text" className="add-folder-input"
-                    name="folder-name" id="name" />
+                    name="folder-name" id="name"
+                />
 
                 <button type="submit" className="save-button">
                     Save

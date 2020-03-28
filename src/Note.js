@@ -5,6 +5,11 @@ import Context from './Context';
 class Note extends Component {
     static contextType = Context
 
+    handleDeleteNote = () => {
+        this.context.deleteNote(this.props.id)
+        this.props.history.replace('/')
+    }
+
     render() {
         return (
             <div className="note-container">
@@ -12,7 +17,7 @@ class Note extends Component {
                     <Link to={`/notes/${this.props.id}`} className="note-name">{this.props.name}</Link>
                 </h3>
                 <p className="modified">{this.props.modified}</p>
-                <button type="button" className="delete-note" onClick={() => this.context.deleteNote(this.props.id)}>Delete Note</button>
+                <button type="button" className="delete-note" onClick={this.handleDeleteNote}>Delete Note</button>
             </div>
         )
     }

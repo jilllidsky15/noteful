@@ -28,7 +28,8 @@ class NoteListMain extends Component {
                             <Note
                                 id={note.id}
                                 name={note.name}
-                                modified={note.modified} />
+                                modified={note.modified} 
+                                history = {this.props.history} />
                         </li>
                     )}
                 </ul>
