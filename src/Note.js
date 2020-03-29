@@ -17,7 +17,7 @@ class Note extends Component {
                     <Link to={`/notes/${this.props.id}`} className="note-name">{this.props.name}</Link>
                 </h3>
                 <p className="modified">{this.props.modified}</p>
-                <button type="button" className="delete-note" onClick={this.handleDeleteNote}>Delete Note</button>
+                <button type="button" className="delete-note-button" onClick={this.handleDeleteNote}>Delete Note</button>
             </div>
         )
     }

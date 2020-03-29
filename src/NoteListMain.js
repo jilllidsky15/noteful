@@ -33,7 +33,7 @@ class NoteListMain extends Component {
                         </li>
                     )}
                 </ul>
-                <Link to="/add-note" type="button" className="add-note">Add Note</Link>
+                <Link to="/add-note" type="button" className="add-note-button">Add Note</Link>
             </section>
         )
     }

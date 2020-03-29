@@ -28,6 +28,7 @@ main {
 }
 
 /* Note List Nav */
+
 .active-folder {
     background-color: yellow;
 }
@@ -40,6 +41,7 @@ main {
 .folder-item {
     text-align: center;
     border-bottom: 1px solid black;
+    font-weight: bold;
     padding: 10px;
 }
 
@@ -48,12 +50,21 @@ main {
     color: black;
 }
 
-button.add-folder {
-    margin: 4px;
+.add-folder-button {
+    margin-top: 10px;
     border: 1px solid black;
     padding: 10px;
     width: 200px;
     align-self: center;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-folder-button:hover {
+    background-color: black;
+    color: white;
 }
 
 /* Note List Main */
@@ -71,11 +82,20 @@ button.add-folder {
     margin-bottom: 10px;
 }
 
-button.add-note {
-    margin-left: 10px;
+.add-note-button {
+    margin: 0px 10px 10px 10px;
     border: 1px solid black;
     padding: 10px;
     width: 200px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-note-button:hover {
+    background-color: black;
+    color: white;
 }
 
 /* Note */
@@ -97,11 +117,18 @@ h3 {
     padding-bottom: 20px;
 }
 
-button.delete-note {
+.delete-note-button {
     border: 1px solid black;
     padding: 10px;
     width: 200px;
     align-self: flex-end;
+    background-color: white;
+    font-weight: bold;
+}
+
+.delete-note-button:hover {
+    background-color: black;
+    color: white;
 }
 
 /* Note Page Nav */
@@ -111,15 +138,22 @@ button.delete-note {
     flex-direction: column;
 }
 
-button.go-back {
+.go-back-button {
     margin: 10px 0px;
     border: 1px solid black;
     padding: 10px;
     width: 200px;
     align-self: center;
+    background-color: white;
+    font-weight: bold;
 }
 
-.note-nav-container h3 {
+.go-back-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.note-page-nav-folder-name {
     text-align: center;
 }
 
@@ -128,3 +162,72 @@ button.go-back {
 .note-content {
     margin-left: 10px;
 }
+
+/* Add Folder */
+.add-folder-form {
+    margin: 10px;
+}
+
+.add-folder-input {
+    border: 1px solid black;
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+}
+
+.save-folder-button {
+    margin-left: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.save-folder-button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Add Note */
+.add-note-form {
+    margin: 10px;
+}
+
+.add-note-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-note-input {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+}
+
+
+.folder-drop-down {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    width: 200px;
+    height: 30px;
+}
+
+.save-note-button {
+    border: 1px solid black;
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.save-note-button:hover {
+    background-color: black;
+    color: white;
+}
+    

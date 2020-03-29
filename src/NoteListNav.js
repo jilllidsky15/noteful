@@ -19,7 +19,7 @@ class NoteListNav extends Component {
                         </li>
                     )}
                 </ul>
-                <Link to="/add-folder" type="button" className="add-folder">Add Folder</Link>
+                <Link to="/add-folder" type="button" className="add-folder-button">Add Folder</Link>
             </div>
         )
     }

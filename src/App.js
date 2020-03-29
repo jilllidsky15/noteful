@@ -11,6 +11,7 @@ import Context from './Context';
 import config from './config';
 import AddNote from './AddNote';
 import AddFolder from './AddFolder';
+import ErrorBoundary from './ErrorBoundary';
 
 class App extends Component {
   constructor(props) {
@@ -129,36 +130,40 @@ class App extends Component {
         <Header />
         <Context.Provider value={contextValue}>
           <div className="container">
-            <nav>
-              <Route exact path="/"
-                component={NoteListNav}
-              />
+            <ErrorBoundary>
+              <nav>
+                <Route exact path="/"
+                  component={NoteListNav}
+                />
 
-              <Route path="/folders/:folderId"
-                component={NoteListNav}
-              />
+                <Route path="/folders/:folderId"
+                  component={NoteListNav}
+                />
 
-              <Route path="/notes/:noteId"
-                component={NotePageNav}
-              />
-            </nav>
-            <main>
-              <Route exact path="/"
-                component={NoteListMain}
-              />
-              <Route path="/folders/:folderId"
-                component={NoteListMain}
-              />
-              <Route path="/notes/:noteId"
-                component={NotePageMain}
-              />
-              <Route path="/add-folder"
-                component={AddFolder}
-              />
-              <Route path="/add-note"
-                component={AddNote}
-              />
-            </main>
+                <Route path="/notes/:noteId"
+                  component={NotePageNav}
+                />
+              </nav>
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <main>
+                <Route exact path="/"
+                  component={NoteListMain}
+                />
+                <Route path="/folders/:folderId"
+                  component={NoteListMain}
+                />
+                <Route path="/notes/:noteId"
+                  component={NotePageMain}
+                />
+                <Route path="/add-folder"
+                  component={AddFolder}
+                />
+                <Route path="/add-note"
+                  component={AddNote}
+                />
+              </main>
+            </ErrorBoundary>
           </div>
         </Context.Provider>
       </div >

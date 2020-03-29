@@ -12,8 +12,8 @@ class NotePageNav extends Component {
         const selectedFolder = folders.find(folder => folder.id === selectedNote.folderId);
         return (
             <div className="note-page-nav-container">
-                <button type="button" className="go-back" onClick={() => this.props.history.goBack()}>Go Back</button>
-                <h3>{selectedFolder.name}</h3>
+                <button type="button" className="go-back-button" onClick={() => this.props.history.goBack()}>Go Back</button>
+                <h3 className="note-page-nav-folder-name">Folder: {selectedFolder.name}</h3>
             </div>
         )
     }
