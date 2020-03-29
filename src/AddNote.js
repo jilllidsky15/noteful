@@ -10,10 +10,36 @@
 import React, { Component } from "react";
 import './AddNote.css';
 import Context from './Context';
-// import ValidationError from "./ValidationError";
+import ValidationError from "./ValidationError";
 
 class AddNote extends Component {
     static contextType = Context
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: {
+                value: '',
+                touched: false,
+            }
+        }
+    }
+
+    updateName(name) {
+        this.setState({
+            name: {
+                value: name,
+                touched: true,
+            }
+        })
+    }
+
+    validateName() {
+        const name = this.state.name.value.trim();
+        if (name.length === 0) {
+            return "Name is required";
+        }
+    }
 
     handleSubmit = e => {
         e.preventDefault();
@@ -28,14 +54,14 @@ class AddNote extends Component {
     }
 
     render() {
+        const nameError = this.validateName()
         return (
             <form className="add-note" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add a Note</h2>
-                
                 <label htmlFor="name">Name:</label>
                 <input type="text" className="add-note-input"
-                    name="note-name" id="name" />
-
+                    name="note-name" id="name" onChange={e => this.updateName(e.target.value)} />
+                {this.state.name.touched && <ValidationError message={nameError} />}
                 <label htmlFor="content">Content:</label>
                 <input type="text" className="add-note-input"
                     name="note-content" id="content" />
@@ -43,15 +69,18 @@ class AddNote extends Component {
                 <label htmlFor="Folder">Folder:</label>
                 <select name="note-folder-id">
                     {this.context.folders.map(folder =>
-                        <option 
-                        value={folder.id} 
-                        key={folder.id}>{folder.name}</option>
+                        <option
+                            value={folder.id}
+                            key={folder.id}>{folder.name}</option>
                     )}
                 </select>
 
                 <button
                     type="submit"
                     className="save-button"
+                    disabled={
+                        this.validateName()
+                    }
                 >
                     Save
                 </button>
