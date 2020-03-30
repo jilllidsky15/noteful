@@ -51,11 +51,11 @@ class AddNote extends Component {
                 <div className="add-note-container">
                     <label htmlFor="name">Name: </label>
                         <input type="text" className="add-note-input"
-                            name="note-name" id="name" onChange={e => this.updateName(e.target.value)} />
+                            name="note-name" id="name" aria-required="true" onChange={e => this.updateName(e.target.value)} />
                         {this.state.name.touched && <ValidationError message={nameError} />}
                     <label htmlFor="content">Content: </label>
                         <input type="text" className="add-note-input"
-                            name="note-content" id="content" />
+                            name="note-content" id="content" aria-required="true" />
 
                     <label htmlFor="Folder" className="folder-name-drop-down">Folder:</label>
                         <select name="note-folder-id" className="folder-drop-down">

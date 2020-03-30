@@ -22,7 +22,7 @@ class AddFolder extends Component {
 
                 <label htmlFor="name">Name: </label>
                 <input type="text" className="add-folder-input"
-                    name="folder-name" id="name"
+                    name="folder-name" id="name" aria-required="true"
                 />
 
                 <button type="submit" className="save-folder-button">

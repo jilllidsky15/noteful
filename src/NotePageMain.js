@@ -12,9 +12,7 @@ class NotePageMain extends Component {
         return (
             <section className="note-page-main-container">
                 <Note {...selectedNote} history={this.props.history} />
-                <div>
-                    <p className="note-content">{selectedNote.content}</p>
-                </div>
+                <p className="note-content">{selectedNote.content}</p>
             </section>
         )
     }
