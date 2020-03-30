@@ -54,7 +54,13 @@ class AddFolder extends Component {
                     name="folder-name" id="name" aria-required="true" onChange={e => this.updateName(e.target.value)} />
                 {this.state.name.touched && <ValidationError message={nameError} />}
 
-                <button type="submit" className="save-folder-button">
+                <button
+                    type="submit"
+                    className="save-folder-button"
+                    disabled={
+                        this.validateName()
+                    }
+                >
                     Save
                 </button>
             </form >
