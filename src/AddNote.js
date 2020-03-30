@@ -41,6 +41,7 @@ class AddNote extends Component {
         }
 
         this.context.addNote(newNote)
+        this.props.history.replace('/')
     }
 
     render() {
