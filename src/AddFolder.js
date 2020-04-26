@@ -34,7 +34,7 @@ class AddFolder extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const newFolder = {
-            name: e.target['folder-name'].value
+            folder_name: e.target['folder-name'].value
         }
         // console.log(newFolder);
 
