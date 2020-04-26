@@ -37,7 +37,6 @@ class App extends Component {
       .then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
-        return res.json()
       })
       .then(() => {
         this.setState({
