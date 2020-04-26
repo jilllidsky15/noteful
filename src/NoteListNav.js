@@ -6,15 +6,15 @@ class NoteListNav extends Component {
     static contextType = Context;
     render() {
         const { folders } = this.context
-        const folderId = this.props.match.params.folderId;
-        const selectedFolder = folders.find(folder => folder.id === folderId);
+        const folderId = parseInt(this.props.match.params.folderId)
+        const selectedFolder = folders.find(folder => folder.id === folderId)
         return (
             <div className="note-list-nav-container">
                 <ul className="folder-list">
                     {folders.map(folder =>
-                        <li className={`folder-item ${selectedFolder === folder.name ? 'active-folder' : ''}`} key={folder.id}>
+                        <li className={`folder-item ${selectedFolder === folder.folder_name ? 'active-folder' : ''}`} key={folder.id}>
                             <NavLink to={`/folders/${folder.id}`}>
-                                <span>{folder.name}</span>
+                                <span>{folder.folder_name}</span>
                             </NavLink>
                         </li>
                     )}

@@ -14,7 +14,7 @@ class Note extends Component {
         return (
             <div className="note-container">
                 <h3>
-                    <Link to={`/notes/${this.props.id}`} className="note-name">{this.props.name}</Link>
+                    <Link to={`/notes/${this.props.id}`} className="note-name">{this.props.note_name}</Link>
                 </h3>
                 <p className="modified">{this.props.modified}</p>
                 <button type="button" className="delete-note-button" onClick={this.handleDeleteNote}>Delete Note</button>
@@ -25,8 +25,8 @@ class Note extends Component {
 
 Note.propTypes = {
     history: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    note_name: PropTypes.string.isRequired,
     modified: PropTypes.string.isRequired,
 }
 

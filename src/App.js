@@ -28,7 +28,7 @@ class App extends Component {
     // console.log(this.state.notes) //you should see all notes here
     // console.log(this.state.notes.filter(note => note.id !== noteId)) //you should see filtered notes 
 
-    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+    fetch(`${config.API_ENDPOINT}/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -50,7 +50,7 @@ class App extends Component {
   }
 
   addNote = (note) => {
-    fetch(`${config.API_ENDPOINT}/notes`, {
+    fetch(`${config.API_ENDPOINT}/api/notes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -62,7 +62,7 @@ class App extends Component {
           return res.json().then(e => Promise.reject(e))
         return res.json()
       })
-      .then((addedNote) => {
+      .then(addedNote => {
         // console.log(addedNote)
         this.setState({
           notes: [...this.state.notes, addedNote]
@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   addFolder = (folder) => {
-    fetch(`${config.API_ENDPOINT}/folders`, {
+    fetch(`${config.API_ENDPOINT}/api/folders`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -98,8 +98,8 @@ class App extends Component {
 
   componentDidMount() {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/notes`),
-      fetch(`${config.API_ENDPOINT}/folders`)
+      fetch(`${config.API_ENDPOINT}/api/notes`),
+      fetch(`${config.API_ENDPOINT}/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)

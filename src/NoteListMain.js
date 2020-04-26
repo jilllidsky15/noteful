@@ -6,7 +6,7 @@ import Context from './Context';
 class NoteListMain extends Component {
     static contextType = Context
     render() {
-        const folderId = this.props.match.params.folderId
+        const folderId = parseInt(this.props.match.params.folderId)
         const { folders, notes } = this.context;
         const selectedFolder = folders.find(folder => folder.id === folderId)
         // selectedFolder is UNDEFINED when folder id doesnt exist --> ie: not in the URL
@@ -14,7 +14,7 @@ class NoteListMain extends Component {
         const notesToDisplay = notes.filter(note => {
             // only FILTER when selectedFolder exists
             if (selectedFolder) {
-                return note.folderId === selectedFolder.id; // true false
+                return note.folder_id === selectedFolder.id; // true false
             }
             // otherwise return it ALL
             return true;
@@ -27,7 +27,7 @@ class NoteListMain extends Component {
                         <li className="note-item" key={note.id}>
                             <Note
                                 id={note.id}
-                                name={note.name}
+                                note_name={note.note_name}
                                 modified={note.modified} 
                                 history = {this.props.history} />
                         </li>

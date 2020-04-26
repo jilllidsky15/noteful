@@ -34,9 +34,9 @@ class AddNote extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const newNote = {
-            name: e.target['note-name'].value,
+            note_name: e.target['note-name'].value,
             content: e.target['note-content'].value,
-            folderId: e.target['note-folder-id'].value,
+            folder_id: e.target['note-folder-id'].value,
             modified: new Date(),
         }
 
@@ -63,7 +63,7 @@ class AddNote extends Component {
                             {this.context.folders.map(folder =>
                                 <option
                                     value={folder.id}
-                                    key={folder.id}>{folder.name}</option>
+                                    key={folder.id}>{folder.folder_name}</option>
                             )}
                         </select>
 

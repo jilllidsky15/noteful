@@ -5,8 +5,8 @@ import Context from './Context';
 class NotePageMain extends Component {
     static contextType = Context
     render() {
-        // console.log(this.props, this.context)
-        const noteId = this.props.match.params.noteId
+        console.log(this.context)
+        const noteId = parseInt(this.props.match.params.noteId)
         const { notes } = this.context
         const selectedNote = notes.find(note => note.id === noteId)
         return (
