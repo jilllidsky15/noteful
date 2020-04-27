@@ -11,6 +11,10 @@ class AddNote extends Component {
             name: {
                 value: '',
                 touched: false,
+            },
+            content: {
+                value: '',
+                touched: false,
             }
         }
     }
