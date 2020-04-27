@@ -79,7 +79,6 @@ class AddNote extends Component {
                         <input type="text" className="add-note-input"
                             name="note-content" id="content" aria-required="true" onChange={e => this.updateContent(e.target.value)} />
                         {this.state.content.touched && <ValidationError message={contentError} />}
-
                     <label htmlFor="Folder" className="folder-name-drop-down">Folder:</label>
                         <select name="note-folder-id" className="folder-drop-down">
                             {this.context.folders.map(folder =>
@@ -93,7 +92,7 @@ class AddNote extends Component {
                         type="submit"
                         className="save-note-button"
                         disabled={
-                            this.validateName() &&
+                            this.validateName() ||
                             this.validateContent()
                         }
                     >
