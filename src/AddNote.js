@@ -93,7 +93,7 @@ class AddNote extends Component {
                         type="submit"
                         className="save-note-button"
                         disabled={
-                            this.validateName() ||
+                            this.validateName() &&
                             this.validateContent()
                         }
                     >
