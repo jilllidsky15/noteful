@@ -28,7 +28,7 @@ class AddNote extends Component {
         })
     }
 
-    updateContent() {
+    updateContent(content) {
         this.setState({
             content: {
                 value: content,
