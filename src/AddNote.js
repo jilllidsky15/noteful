@@ -24,10 +24,26 @@ class AddNote extends Component {
         })
     }
 
+    updateContent() {
+        this.setState({
+            content: {
+                value: content,
+                touched: true,
+            }
+        })
+    }
+
     validateName() {
         const name = this.state.name.value.trim();
         if (name.length === 0) {
             return "Name is required";
+        }
+    }
+
+    validateContent() {
+        const content = this.state.content.value.trim();
+        if (content.length === 0) {
+            return "Content is required";
         }
     }
 
@@ -46,6 +62,7 @@ class AddNote extends Component {
 
     render() {
         const nameError = this.validateName()
+        const contentError = this.validateContent()
         return (
             <form className="add-note-form" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add a Note</h2>
@@ -56,7 +73,8 @@ class AddNote extends Component {
                         {this.state.name.touched && <ValidationError message={nameError} />}
                     <label htmlFor="content">Content: </label>
                         <input type="text" className="add-note-input"
-                            name="note-content" id="content" aria-required="true" />
+                            name="note-content" id="content" aria-required="true" onChange={e => this.updateContent(e.target.value)} />
+                        {this.state.content.touched && <ValidationError message={contentError} />}
 
                     <label htmlFor="Folder" className="folder-name-drop-down">Folder:</label>
                         <select name="note-folder-id" className="folder-drop-down">
@@ -71,7 +89,8 @@ class AddNote extends Component {
                         type="submit"
                         className="save-note-button"
                         disabled={
-                            this.validateName()
+                            this.validateName() ||
+                            this.validateContent()
                         }
                     >
                         Save
