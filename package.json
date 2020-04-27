@@ -20,7 +20,6 @@
     "serve": "serve -s build",
     "preserve": "npm run build",
     "deploy": "now ./build",
-    "postdeploy": "now alias -A ./build/now.json"
   },
   "eslintConfig": {
     "extends": "react-app"
